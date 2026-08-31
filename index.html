@@ -691,7 +691,7 @@
   </footer>
 
   <!-- ========================================================================
-       Floating Elements (Back to Top & Toast)
+       Floating Elements (Back to Top, Toast & Yamada AI Chatbot)
        ======================================================================== -->
   <button class="back-to-top-btn" id="back-to-top" aria-label="Scroll back to top" title="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
@@ -704,8 +704,94 @@
     <span id="toast-message">Your message has been sent successfully!</span>
   </div>
 
-  <!-- Main JavaScript File -->
+  <!-- ========================================================================
+       Yamada AI Assistant Chatbot Widget
+       ======================================================================== -->
+  <div class="yamada-chatbot-container" id="yamada-chatbot">
+    <!-- Chatbot Floating Trigger Button -->
+    <button class="yamada-trigger-btn" id="yamada-trigger" aria-label="Open chat with Yamada" data-tooltip="Start chatting with Yamada">
+      <span class="yamada-trigger-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          <circle cx="9" cy="10" r="1.2" fill="currentColor"></circle>
+          <circle cx="15" cy="10" r="1.2" fill="currentColor"></circle>
+        </svg>
+      </span>
+      <span class="yamada-close-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </span>
+      <span class="yamada-status-indicator" title="Online"></span>
+      <!-- Hover Tooltip -->
+      <span class="yamada-tooltip">Start chatting with Yamada</span>
+    </button>
+
+    <!-- Chatbot Dashboard Window Floating -->
+    <div class="yamada-dashboard" id="yamada-dashboard" aria-hidden="true">
+      <!-- Header -->
+      <div class="yamada-header">
+        <div class="yamada-header-profile">
+          <div class="yamada-avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path>
+              <rect x="4" y="8" width="16" height="12" rx="2"></rect>
+              <circle cx="9" cy="13" r="1" fill="currentColor"></circle>
+              <circle cx="15" cy="13" r="1" fill="currentColor"></circle>
+              <line x1="9" y1="17" x2="15" y2="17"></line>
+            </svg>
+            <span class="yamada-online-dot"></span>
+          </div>
+          <div class="yamada-header-info">
+            <h3 class="yamada-name">Yamada</h3>
+            <span class="yamada-subtitle">Suraj's Portfolio Assistant</span>
+          </div>
+        </div>
+        <div class="yamada-header-actions">
+          <button class="yamada-action-btn" id="yamada-reset-btn" title="Reset conversation" aria-label="Reset chat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+              <path d="M3 3v5h5"></path>
+            </svg>
+          </button>
+          <button class="yamada-action-btn" id="yamada-close-btn" title="Close chat" aria-label="Close chat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages Area -->
+      <div class="yamada-messages" id="yamada-messages">
+        <!-- Welcoming Message & Recommendations rendered dynamically -->
+      </div>
+
+      <!-- Input Form -->
+      <form class="yamada-input-form" id="yamada-input-form">
+        <input 
+          type="text" 
+          id="yamada-input" 
+          class="yamada-input" 
+          placeholder="Ask Yamada anything..." 
+          autocomplete="off" 
+          required
+        />
+        <button type="submit" class="yamada-send-btn" id="yamada-send-btn" aria-label="Send message">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Files -->
   <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
 </body>
 </html>
 
